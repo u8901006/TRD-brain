@@ -5,14 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>TRD Brain · 難治型憂鬱症文獻日報</title>
 <style>
-  :root { --bg: #0f0f1a; --surface: #1a1a2e; --line: #2a2a4a; --text: #e8e8f0; --muted: #8888aa; --accent: #6c63ff; --accent-soft: rgba(108,99,255,0.15); }
+  :root { --bg: #0f0f1a; --surface: #1a1a2e; --line: #2a2a4a; --text: #e8e8f0; --muted: #8888aa; --accent: #6c63ff; --accent-soft: rgba(108,99,255,0.15); --success: #4ecdc4; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; }
+  body { background: var(--bg); background-image: radial-gradient(ellipse at 20% 50%, rgba(108,99,255,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(78,205,196,0.06) 0%, transparent 50%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; }
   .container { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 80px 24px; }
   .logo { font-size: 48px; text-align: center; margin-bottom: 16px; }
   h1 { text-align: center; font-size: 24px; color: var(--text); margin-bottom: 8px; }
   .subtitle { text-align: center; color: var(--accent); font-size: 14px; margin-bottom: 48px; }
   .count { text-align: center; color: var(--muted); font-size: 13px; margin-bottom: 32px; }
+  ul { list-style: none; }
+  li { margin-bottom: 8px; }
+  a { color: var(--text); text-decoration: none; display: block; padding: 14px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; transition: all 0.2s; font-size: 15px; }
+  a:hover { background: var(--accent-soft); border-color: var(--accent); transform: translateX(4px); }
   .clinic-banner { margin-top: 48px; }
   .clinic-links { display: flex; flex-direction: column; gap: 12px; }
   .clinic-link { display: flex; align-items: center; gap: 14px; padding: 14px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.2s; }
@@ -30,7 +34,9 @@
   <div class="logo">🧠</div>
   <h1>TRD Brain</h1>
   <p class="subtitle">難治型憂鬱症文獻日報 · 每日自動更新</p>
-  <p class="count">即將開始更新...</p>
+  <p class="count">共 1 期日報</p>
+  <ul><li><a href="trd-2026-04-15.html">📅 2026年4月15日（週三）</a></li>
+</ul>
   <div class="clinic-banner">
     <div class="clinic-links">
       <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
