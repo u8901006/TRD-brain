@@ -56,7 +56,7 @@ jobs:
         run: |
           python scripts/fetch_papers.py \
             --days 7 \
-            --max-papers 50 \
+            --max-papers 100 \
             --json \
             --output papers.json
         continue-on-error: true
@@ -100,5 +100,5 @@ jobs:
         run: |
           echo "### 📄 TRD Daily Report" >> $GITHUB_STEP_SUMMARY
           echo "**Date:** ${{ steps.date.outputs.target }}" >> $GITHUB_STEP_SUMMARY
-          echo "**Papers analyzed:** ${{ steps.papers.outputs.count }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Papers analyzed:** ${{ steps.papers.outputs.count }} (deduped against last 7 days)" >> $GITHUB_STEP_SUMMARY
           echo "**Report:** [trd-${{ steps.date.outputs.target }}.html](https://u8901006.github.io/TRD-brain/trd-${{ steps.date.outputs.target }}.html)" >> $GITHUB_STEP_SUMMARY

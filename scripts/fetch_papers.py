@@ -7,7 +7,10 @@ biological psychiatry, psychopharmacology, neuromodulation, and psychotherapy.
 
 import json
 import sys
+import re
 import argparse
+import glob
+import os
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from urllib.request import urlopen, Request
@@ -129,6 +132,39 @@ TRD_KEYWORDS_CLINICAL = [
 ]
 
 HEADERS = {"User-Agent": "TRDBrainBot/1.0 (research aggregator)"}
+
+
+def load_seen_pmids(docs_dir: str = "docs", lookback_days: int = 7) -> set[str]:
+    seen = set()
+    if not os.path.isdir(docs_dir):
+        return seen
+    pattern = os.path.join(docs_dir, "trd-*.html")
+    tz_taipei = timezone(timedelta(hours=8))
+    cutoff = (datetime.now(tz_taipei) - timedelta(days=lookback_days)).date()
+    for filepath in sorted(glob.glob(pattern), reverse=True):
+        basename = os.path.basename(filepath)
+        date_str = basename.replace("trd-", "").replace(".html", "")
+        try:
+            file_date = datetime.strptime(date_str, "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if file_date < cutoff:
+            break
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                content = f.read()
+            pmids = re.findall(r"pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/", content)
+            seen.update(pmids)
+            print(
+                f"[INFO] {basename}: found {len(pmids)} existing PMIDs", file=sys.stderr
+            )
+        except Exception as e:
+            print(f"[WARN] Could not read {filepath}: {e}", file=sys.stderr)
+    print(
+        f"[INFO] Total seen PMIDs in last {lookback_days} days: {len(seen)}",
+        file=sys.stderr,
+    )
+    return seen
 
 
 def build_query(days: int = 7, max_journals: int = 15) -> str:
@@ -270,7 +306,12 @@ def main():
     )
     parser.add_argument("--output", default="-", help="Output file (- for stdout)")
     parser.add_argument("--json", action="store_true", help="Output as JSON")
+    parser.add_argument(
+        "--docs-dir", default="docs", help="Directory with existing reports for dedup"
+    )
     args = parser.parse_args()
+
+    seen_pmids = load_seen_pmids(args.docs_dir, lookback_days=7)
 
     query = build_query(days=args.days)
     print(
@@ -279,7 +320,16 @@ def main():
     )
 
     pmids = search_papers(query, retmax=args.max_papers)
-    print(f"[INFO] Found {len(pmids)} papers", file=sys.stderr)
+    print(f"[INFO] Found {len(pmids)} papers from PubMed", file=sys.stderr)
+
+    if seen_pmids:
+        new_pmids = [p for p in pmids if p not in seen_pmids]
+        skipped = len(pmids) - len(new_pmids)
+        print(
+            f"[INFO] Dedup: skipped {skipped} already-seen papers, {len(new_pmids)} new",
+            file=sys.stderr,
+        )
+        pmids = new_pmids
 
     if not pmids:
         print("NO_CONTENT", file=sys.stderr)
