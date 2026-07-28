@@ -7,7 +7,7 @@ AI-powered PubMed surveillance system that automatically fetches, analyzes, and 
 ## Features
 
 - Automated daily PubMed search across 45+ TRD-relevant journals
-- AI analysis with Zhipu GLM-5-Turbo (with fallback to GLM-4.7 / GLM-4.7-Flash)
+- AI analysis with NVIDIA NIM Nemotron 3 (primary `nvidia/nemotron-3-super-120b-a12b`, fallback `nvidia/nemotron-3-nano-30b-a3b`)
 - PICO analysis, clinical utility assessment, and topic classification
 - Beautiful dark-themed HTML reports deployed to GitHub Pages
 - Traditional Chinese (Taiwan) summaries for healthcare professionals
