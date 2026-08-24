@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TRD Brain · 難治型憂鬱症文獻日報 · 2026年8月25日</title>
+<meta name="description" content="2026年8月25日 難治型憂鬱症 (TRD) 文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #0f0f1a; --surface: #1a1a2e; --surface-2: #16213e; --line: #2a2a4a; --text: #e8e8f0; --muted: #8888aa; --accent: #6c63ff; --accent-soft: rgba(108,99,255,0.15); --accent-glow: rgba(108,99,255,0.3); --success: #4ecdc4; --warning: #ffe66d; --danger: #ff6b6b; --card-bg: rgba(26,26,46,0.92); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); background-image: radial-gradient(ellipse at 20% 50%, rgba(108,99,255,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(78,205,196,0.06) 0%, transparent 50%), radial-gradient(ellipse at 50% 80%, rgba(255,107,107,0.04) 0%, transparent 50%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), var(--success)); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; box-shadow: 0 4px 24px var(--accent-glow); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--accent); color: var(--accent); }
+  .badge-count { background: rgba(78,205,196,0.1); border: 1px solid rgba(78,205,196,0.3); color: var(--success); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05); animation: fadeUp 0.5s ease 0.1s both; backdrop-filter: blur(10px); }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); transition: background 0.2s, border-color 0.2s, transform 0.2s; backdrop-filter: blur(10px); }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: var(--accent); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { box-shadow: 0 12px 40px rgba(108,99,255,0.15); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: linear-gradient(135deg, var(--accent), var(--success)); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border: 1px solid rgba(108,99,255,0.2); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--success); text-decoration: none; opacity: 0.8; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: var(--success); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(78,205,196,0.1); border-radius: 4px; }
+  .utility-mid { color: var(--warning); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(255,230,109,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(136,136,170,0.1); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(15,15,26,0.6); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid rgba(108,99,255,0.15); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: all 0.2s; }
+  .keyword:hover { background: rgba(108,99,255,0.25); border-color: var(--accent); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--success); width: 24px; }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.3s both; }
+  .clinic-links { display: flex; flex-direction: column; gap: 12px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(108,99,255,0.15); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-info { flex: 1; }
+  .clinic-name { font-size: 15px; font-weight: 700; color: var(--text); }
+  .clinic-desc { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 80px; font-size: 11px; } .clinic-links { gap: 8px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🧠</div>
+    <div class="header-text">
+      <h1>TRD Brain · 難治型憂鬱症文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年8月25日</span>
+        <span class="badge badge-count">📊 18 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日 TRD 文獻趨勢</h2>
+    <p class="summary-text">今日TRD相關文獻整體趨勢顯示，神經影像與神經生物標記研究佔主導，特別是功能連結、糾質系統及可塑性相關機制受到關注。儘管未直接聚焦難治型憂鬱症，但多篇探討雙相憂鬱、青少年抑鬱及ECT效應之研究，間接提供TRD治療策略之參考，顯示跨診斷整合與精準醫學是當前重要發展方向。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>難治型憂鬱症中結構與功能糾質系統異常的多模式MRI研究：重度憂鬱症與雙相障礙的共享病理</h3>
+          <p class="journal-source">Journal of affective disorders · Structural and functional glymphatic abnormalities in major depressive disorder and bipolar disorder: A multimodal MRI study of DTI-ALPS and gBOLD-CSF coupling.</p>
+          <p>發現MDD與BD患者皆存在糾質系統功能降低，且此異常與情感、認知及睡眠症狀相關，提示糾質系統功能障礙為情感障礙的共享神經生物學機制，具潛在治療標的價值。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">52名重度憂鬱症患者，31名雙相障礙患者，52名健康對照</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（觀察性研究）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">健康對照組</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">MDD與BD組皆顯著降低的DTI-ALPS指數及gBOLD-CSF耦合，與認知衰退、快感喪失及睡眠障礙相關</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">生物標記</span><span class="tag">神經影像</span><span class="tag">發炎/細胞激素</span><span class="tag">神經調控</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42264310/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🔬</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3> striatal DAT-SPECT放射組織學分析揭示重度憂鬱症中超越平均結合能的治療強度預測值</h3>
+          <p class="journal-source">Journal of affective disorders · Striatal DAT-SPECT texture beyond mean binding in major depressive disorder.</p>
+          <p>經腦dopamine轉運體（DAT）的放射組織學分析發現，其複雜度與尺度特徵能預測憂鬱嚴重度及需電痙攣療法（ECT）的治療強度，提示空間 hétérogénéité 在藥物治療失敗中的重要角色。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">223名MDD患者（含151名具可評估治療歷程之憂鬱患者）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（觀察性研究）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">以平均結合能為基準的傳統分析</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">DAT放射組織學特徵（entropy/complexity及scale/run-length domains）對憂鬱嚴重度（p=0.024）及治療強度需求（p=0.0048）具有增量預測值</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">生物標記</span><span class="tag">藥物增效</span><span class="tag">ECT 電痙攣治療</span><span class="tag">多巴胺系統</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42259492/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">⚠️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>兒童與青少年重度憂鬱症中抗精神病藥補充療法 vs 布匹羅林：異常抗精神病藥增加住院與自殺風險</h3>
+          <p class="journal-source">Journal of affective disorders · Comparative effectiveness of antidepressant augmentation regimens in children and adolescents with major depressive disorder.</p>
+          <p>在兒青SSRI無效後，異常抗精神病藥（AAP）補充相較於布匹羅林顯著增加住院、急診及自殺相關事件風險（HR=1.69-1.88），提示需謹慎使用AAP作為兒青TRD的增效策略。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">4089名8-18歲，經SSRI治療無效之MDD兒童與青少年</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">SSRI + 異常抗精神病藥 (AAP)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">SSRI + 布匹羅林</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">AAP補充組住院風險增加86%，自殺相關結果風險增加88%，急診增加50%</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">藥物增效</span><span class="tag">非典型抗精神病藥</span><span class="tag">自殺風險</span><span class="tag">兒童與青少年</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42259488/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">📈</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>基於網路可塑性評估預測健康個體對憂鬱症狀的脆弱性：精準預防之潛在生物標記</h3>
+          <p class="journal-source">Journal of affective disorders · Network-based assessment of plasticity predicts vulnerability to depressive symptomatology in healthy individuals.</p>
+          <p>以網路理論量化心理特徵連結強度（逆向指數為可塑性），發現基線連結越強（可塑性越低）與後續憂鬱症狀惡化呈負相關，並顯著延遲症狀 onset 並降低風險（HR=0.20），支持其作為憂鬱預前生物標記。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">146名健康個體（Multi-Mood研究）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（觀察性研究）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">高連結強度（低可塑性） vs 低連結強度（高可塑性）</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">基線連結強度與後續最大憂鬱症狀變化呈負相關（ρ=-0.54），高連結組HR=0.20，到達症狀門檻延遲</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">生物標記</span><span class="tag">神經調控</span><span class="tag">精準精神醫學</span><span class="tag">認知功能</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42322981/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>重度憂鬱症伴混合特徵的α頻帶連結與結構-功能耦合之可分離模式：支持其為神經生物學獨立亞型</h3>
+          <p class="journal-source">Journal of affective disorders · Dissociable patterns of alpha-band connectivity and structural-functional coupling in major depressive disorder with mixed features.</p>
+          <p>DMF患者在右補運動區與前 cingulate 迴之間顯示增強α帶連結及左 cingulate 迴特有的結構-功能耦合，與輕躁症狀負相關，支持其為具有獨立神經生物學基礎之臨床亞型。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">35名DMF患者，76名非DMF憂鬱症患者，86名健康對照</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（觀察性研究）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">非DMF憂鬱症及健康對照</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">DMF獨有右SMA-right ACC α連結增強及左ACC結構-功能耦合增強，後者與輕躁症狀負相關</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">雙相憂鬱</span><span class="tag">神經影像</span><span class="tag">BDNF/神經可塑性</span><span class="tag">神經調控</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42372881/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📱</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>COVID-19期間智慧型手機認知評估在老年憂鬱者中的可行性與表現：生態瞬間評量研究</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>憂鬱病史老年人在智慧型手機認知任務中表現較差（處理速度慢、準確度低），但EMA具可行性，支持其用於評估抑鬱對認知的真實世界影響。</p>
+          <div class="card-footer">
+            <span class="tag">認知功能</span><span class="tag">生態瞬間評量</span><span class="tag">老年憂鬱</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42248530/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>青少年憂鬱的社會心理風險因素網路分析：情緒調節與學校環境為核心節點</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>情緒調節困難、感知壓力與學校環境是青少年憂鬱網路中最核心之因素，提示介入應聚焦於情緒技能與學校支援而非單一因素。</p>
+          <div class="card-footer">
+            <span class="tag">青少年憂鬱</span><span class="tag">心理治療</span><span class="tag">學校環境</span><span class="tag">情緒調節</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42248529/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>大規模神經影像與基因組整合揭示重度憂鬱症中控制性去分化：前額葉與額葉網路雙向失調</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>MDD中視覺與感覺運動網路平均控制力下降，前額葉及額葉網路上升，且其轉錄特徵與基因表達、突觸可塑性通路相關，提供控制論視角解釋腦剛性動態。</p>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">神經影像</span><span class="tag">神經調控</span><span class="tag">轉錄組學</span><span class="tag">前額葉功能</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42242429/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⏳</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>慢性昏夜節律錯位持續時間決定抑鬱樣行為從可逆轉為持續性：涉及BDNF-TrkB訊號與髓鞘喪失</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>小鼠研究顯示，短期昏夜節律錯位（18-36天）誘導之抑鬱樣行為可逆，但持續54天則導致持續性髓鞘喪失與行為缺陷，BDNF mimetic 部分逆轉，提示長期節律錯位可致永久性神經病變。</p>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">節律調節</span><span class="tag">BDNF/神經可塑性</span><span class="tag">髓鞘</span><span class="tag">動物模型</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42235830/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>童年逆境與學習倦怠在具非自殺性自傷之青少年憂鬱中的皮質形態學相關：額葉葉厚增與視覺葉薄減</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>MDD伴NSSI青少年顯示眶葉皮質厚度增與學習倦怠正相關，視覺皮質薄與身體虐待相關，右前額葉/前 cingulate 厚度減與父親情感溫度降低相關，提示早期創傷經皮質重塑嵌入影響功能復原。</p>
+          <div class="card-footer">
+            <span class="tag">童年創傷</span><span class="tag">非自殺性自傷</span><span class="tag">皮質厚度</span><span class="tag">學習倦怠</span><span class="tag">青少年憂鬱</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42250610/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📋</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>PANDORA試驗二次分析：基線憂鬱症狀 profile 預測緩解，自殺念慮與運動遲滯為關鍵預後因素（具性別差異）</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>基線總分及特定項目（憂鬱情緒、自殺念慮、運動遲滯、疑病症）與緩解負相關，女性中自殺念慮與運動遲滯為強預測因素，男性則以疑病症為主，支持症狀導向、性別敏感之治療策略。</p>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">症狀分析</span><span class="tag">緩解預測</span><span class="tag">自殺風險</span><span class="tag">性別差異</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42250361/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌿</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Boswellic acid在社會隔離大鼠前額葉中改善行為功能障礙與多巴胺轉運體表現：具性別差異之抗抑鬱潛力</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>Boswellic acid逆轉社會隔離大鼠之運動過度、強迫樣行為及抑鬱樣行為，並正向調節前額葉DAT mRNA與蛋白質表達，效應具性別依賴性，提示其調節多巴胺訊號之潛力。</p>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">天然藥物</span><span class="tag">多巴胺系統</span><span class="tag">性別差異</span><span class="tag">動物模型</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42379071/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📝</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>重度憂鬱症中海馬前連結網絡功能異常：針舌導引rTMS對血清BDNF、TrkB及VGF之影響（更正）</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>此為更正公告，無新科學內容，僅針對原文中數據或敘述之誤誤進行更正。</p>
+          <div class="card-footer">
+            <span class="tag">rTMS/腦刺激</span><span class="tag">BDNF/神經可塑性</span><span class="tag">自殺風險</span><span class="tag">更正公告</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42386472/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📝</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>情緒認知控制中異導向功能連結在重度憂鬱症患者中的異常：更正公告</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>此為更正公告，無新科學內容，僅針對原文中數據或敘述之誤誤進行更正。</p>
+          <div class="card-footer">
+            <span class="tag">rTMS/腦刺激</span><span class="tag">功能連結</span><span class="tag">更正公告</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42309021/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👥</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>精神疾病譜系障礙中的社會剝奪：系統性文獻回顧</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>社會剝奪（含孤獨感）與 schizotypy 講話之負症狀（如遲滯、社交退縮）密切相關，且透過機構化、污名化等外在因素及孤獨、認知障礙等內在因素惡化，強調社會性介入之重要性。</p>
+          <div class="card-footer">
+            <span class="tag">社會隔離</span><span class="tag">負症狀</span><span class="tag">精神病</span><span class="tag">系統性回顧/統合分析</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42284805/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>焦慮與免疫系統：IL-6與廣泛但非特定焦慮症狀之關聯</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>IL-6與廣泛焦慮症狀存在小而顯著正相關（r=.19-.30），但與特定焦慮維度無關聯，提示IL-6反映累積焦慮負荷而非亞型特異性過程。</p>
+          <div class="card-footer">
+            <span class="tag">焦慮</span><span class="tag">IL-6</span><span class="tag">發炎/細胞激素</span><span class="tag">生物標記</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42365848/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚡</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>性別差異對臨床預測因素與電痙攣療法效應之影響：荷蘭ECT聯盟研究結果</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>MDD患者接受ECT後，緩解率在男女間無顯著差異，但觀察到性別與索引情節持續時間及既往心理治療失敗之交互作用：男性隨病程延長緩解率下降，女性則不受影響；既往心理治療失敗者女性緩解率較低。</p>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">ECT 電痙攣治療</span><span class="tag">性別差異</span><span class="tag">臨床預測因素</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42341945/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>急性雙相憂鬱之藥物療法療效、可接受性及相關結果：劑量相關網路元分析橫跨不同年齡層</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>網路元分析顯示拉莫三嗪（50/200mg/day）、非凡phen quetiapine XR（150/300mg/day）及 lumateperone 42mg/day 在急性雙相憂鬱中優於安慰劑改善憂鬱症狀，但無藥物顯著提升反應率、緩解率或可接受性。</p>
+          <div class="card-footer">
+            <span class="tag">雙相憂鬱</span><span class="tag">藥物療法</span><span class="tag">網路元分析</span><span class="tag">劑量效應</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42331044/" target="_blank">PubMed →</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">難治型憂鬱症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">8</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經影像</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:62%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">藥物增效</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">ECT 電痙攣治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:37%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">生物標記</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:75%"></div></div>
+              <span class="topic-count">6</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">性別差異</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:37%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">自殺風險</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:37%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">認知功能</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:37%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">精準精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">雙相憂鬱</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">BDNF/神經可塑性</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">系統性回顧/統合分析</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">2</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">難治型憂鬱症</span><span class="keyword">生物標記</span><span class="keyword">神經影像</span><span class="keyword">藥物增效</span><span class="keyword">ECT</span><span class="keyword">BDNF</span><span class="keyword">性別差異</span><span class="keyword">自殺風險</span><span class="keyword">認知功能</span><span class="keyword">精準精神醫學</span></div></div>
+
+  <div class="clinic-banner">
+    <div class="clinic-links">
+      <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">🏥</span>
+        <div class="clinic-info">
+          <div class="clinic-name">李政洋身心診所首頁</div>
+          <div class="clinic-desc">專業身心科診療服務</div>
+        </div>
+        <span class="clinic-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">📬</span>
+        <div class="clinic-info">
+          <div class="clinic-name">訂閱電子報</div>
+          <div class="clinic-desc">定期接收最新身心健康資訊</div>
+        </div>
+        <span class="clinic-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed · 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/TRD-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
