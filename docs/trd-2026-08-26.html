@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TRD Brain · 難治型憂鬱症文獻日報 · 2026年8月26日</title>
+<meta name="description" content="2026年8月26日 難治型憂鬱症 (TRD) 文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #0f0f1a; --surface: #1a1a2e; --surface-2: #16213e; --line: #2a2a4a; --text: #e8e8f0; --muted: #8888aa; --accent: #6c63ff; --accent-soft: rgba(108,99,255,0.15); --accent-glow: rgba(108,99,255,0.3); --success: #4ecdc4; --warning: #ffe66d; --danger: #ff6b6b; --card-bg: rgba(26,26,46,0.92); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); background-image: radial-gradient(ellipse at 20% 50%, rgba(108,99,255,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(78,205,196,0.06) 0%, transparent 50%), radial-gradient(ellipse at 50% 80%, rgba(255,107,107,0.04) 0%, transparent 50%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), var(--success)); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; box-shadow: 0 4px 24px var(--accent-glow); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--accent); color: var(--accent); }
+  .badge-count { background: rgba(78,205,196,0.1); border: 1px solid rgba(78,205,196,0.3); color: var(--success); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05); animation: fadeUp 0.5s ease 0.1s both; backdrop-filter: blur(10px); }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); transition: background 0.2s, border-color 0.2s, transform 0.2s; backdrop-filter: blur(10px); }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: var(--accent); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { box-shadow: 0 12px 40px rgba(108,99,255,0.15); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: linear-gradient(135deg, var(--accent), var(--success)); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border: 1px solid rgba(108,99,255,0.2); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--success); text-decoration: none; opacity: 0.8; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: var(--success); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(78,205,196,0.1); border-radius: 4px; }
+  .utility-mid { color: var(--warning); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(255,230,109,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(136,136,170,0.1); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(15,15,26,0.6); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid rgba(108,99,255,0.15); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: all 0.2s; }
+  .keyword:hover { background: rgba(108,99,255,0.25); border-color: var(--accent); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--success); width: 24px; }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.3s both; }
+  .clinic-links { display: flex; flex-direction: column; gap: 12px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(108,99,255,0.15); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-info { flex: 1; }
+  .clinic-name { font-size: 15px; font-weight: 700; color: var(--text); }
+  .clinic-desc { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 80px; font-size: 11px; } .clinic-links { gap: 8px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🧠</div>
+    <div class="header-text">
+      <h1>TRD Brain · 難治型憂鬱症文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年8月26日</span>
+        <span class="badge badge-count">📊 8 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日 TRD 文獻趨勢</h2>
+    <p class="summary-text">今日TRD相關文獻主要聚焦於神經影像生物標記、治療特異性大腦結構變化及多因素自殺風險機制，顯示出從單一治療反應向整合神經生物與心理社會因素之精準醫學方向的趨勢。值得注意的是，ECT與藥物治療在海馬體及島葉灰白質體積上的長期變化可能成為預後評估的潛在指標，而童年創傷透過人格、失眠與社會支持等變數介介導致自殺念頭與行為之路徑，提醒臨床上需同步評估創傷史與可干預因子。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">⚡</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>難治型憂鬱症中電痙攣治療與藥物治療對海馬體及島葉灰白質體積的長期影響：一項多中心縱向觀察研究</h3>
+          <p class="journal-source">Journal of affective disorders · Treatment-characteristic brain structural changes in depression: A multi-center longitudinal observational study.</p>
+          <p>ECT 與抗抑鬱藥物治療可誘導海馬體、顳葉與島葉灰白質體積增加，其中 ECT 之效應在 6 個月後仍見於右側海馬體及杏仁核，提示其為難治型憂鬱症中具持續性神經生物學改變之有效治療選項。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">307 名參與者，其中 155 名患有抑鬱症（分別接受 ADM、CBT、ECT 或 rTMS），152 名健康對照組</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">四種治療方式：抗抑鬱藥物 (ADM)、認知行為治療 (CBT)、電痙攣治療 (ECT)、重複經顱磁刺激 (rTMS)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">健康對照組及不同治療組間之灰白質體積變化比較</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">ECT 在雙側海馬體、杏仁核及左島葉於治療後增加灰白質體積，6 個月後右側海馬體及杏仁核維持；ADM 在左島葉初始增加後恢復至基準線；CBT 與 rTMS 無顯著結構變化</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">ECT 電痙攣治療</span><span class="tag">難治型憂鬱症</span><span class="tag">神經影像</span><span class="tag">生物標記</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42456821/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>童年創傷透過人格特質、失眠與社會支持增加自殺念頭與行為風險：來自荷蘭焦慮與憂鬱研究的中介分析</h3>
+          <p class="journal-source">Journal of affective disorders · Childhood trauma and suicide ideation and attempts: Examining the mediating role of psychosocial, personality, lifestyle and biological factors.</p>
+          <p>童年創傷顯著增加自殺念頭僅（OR=1.51）及伴隨行為（OR=2.68）風險，其中人格特質、失眠、低社會支持與孤獨感為主要介介因素，而白血球介素-6 微小介介創傷與自殺行為之關聯，提示多層次可介入點。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">1572 名過去 12 個月內患有憂鬱及/或焦慮症之受試者（來自荷蘭憂鬱與焦慮研究）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（橫斷面觀察研究）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">童年創傷嚴重程度（NEMESIS 0-8 分）與自殺念頭僅 (SI+SA-) 及自殺念頭伴隨行為 (SI+SA+) 之關聯</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">較高創傷分數與 SI+SA- (OR=1.51) 及 SI+SA+ (OR=2.68) 顯著相關；人格、失眠、低社會支持與孤獨感介介兩種結果；IL-6 微小介介 SI+SA+；多重介介模型降低直接效應 65.6% (SI+SA-) 及 39.1% (SI+SA+)</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">童年創傷</span><span class="tag">自殺風險</span><span class="tag">失眠/睡眠</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42637149/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🔗</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>基礎態注意網絡與顯著網絡連接預測安慰劑反應，而顯著網絡與默認模式網絡連接則分離預測藥物或安慰劑治療效果：功能MRI研究</h3>
+          <p class="journal-source">Journal of affective disorders · Pharmacologic and expectancy effects in depression: Associations with inter-network resting-state connectivity.</p>
+          <p>基礎態 dorsal attention 與 salience 網絡連接預測僅在具安慰劑信念者之治療反應；而 salience 與 default mode 網絡連接則呈雙重分離：高連接預測SSRI較佳反應，低連接預測安慰劑較佳反應，顯示神經網絡結構可區分藥物與期待驅動之治療路徑。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">60 名抑鬱症患者，隨機雙盲分配至 SSRI 或安慰劑 8 週</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">SSRI vs 安慰劑（含治療信念變項）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">根據治療分配與信念分組，檢視基礎態 DAN-SN、SN-DMN 連接對治療反應之預測力</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">DAN-SN 連接僅預測安慰劑信念者反應；SN-DMN 連接呈雙重分離：高連接預測SSRI較佳效果，低連接預測安慰劑較佳效果；治療後網絡重組僅在藥物與信念一致時發生，且為情緒改善之結果而非預測因子</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">神經影像</span><span class="tag">神經調控</span><span class="tag">精準精神醫學</span><span class="tag">難治型憂鬱症</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42442664/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">😴</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>睡眠品質差、炎症標誌物異常與焦慮症狀構成網絡，介導主要憂鬱症中的自殺念頭</h3>
+          <p class="journal-source">Journal of affective disorders · Exploratory analysis of the relationships of sleep disorders, emotional symptoms and blood inflammatory markers with suicidal ideation in major depressive disorder.</p>
+          <p>主要憂鬱症患者中，自殺念頭與較差睡眠品質（PSQI）、淋巴細胞比例、日間功能障礙及焦慮嚴重程度顯著相關，且睡眠障礙與日間功能透過炎症與焦慮形成雙向介介路徑，支持整合性介入之必要性。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">157 名主要憂鬱症 (MDD) 患者，依 HAMD 第 3 項目分為自殺念頭組與非自殺念頭組</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（橫斷面相關研究）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">睡眠品質 (PSQI)、週邊發炎標誌物 (血常規)、情緒症狀 (HAMD/HAMA) 與自殺念頭之關聯</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">自殺念頭組睡眠品質較差；PSQI 總分與睡眠障礙組件與自殺念頭相關；淋巴細胞比例經由睡眠障礙與日間功能間接關聯自殺念頭；日間功能障礙與 HAMA 分數透過雙向介介路徑關聯自殺念頭</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">自殺風險</span><span class="tag">失眠/睡眠</span><span class="tag">發炎/細胞激素</span><span class="tag">焦慮合併症</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42456818/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>基於機器學習之功能近紅外光譜識別青少年主要憂鬱症的前額葉血紅素動態生物標記</h3>
+          <p class="journal-source">Journal of affective disorders · Identifying neuroimaging biomarkers of adolescent major depressive disorder from cortical hemodynamic responses using machine learning approaches.</p>
+          <p>青少年 MDD 在前額葉區域於語言流暢及工作記憶任務中示範減少平均oxy-Hb激活，而工作記憶檢索階段右側 superiores frontal 斜率為隨機森林模型中最具影響力特徵 (AUC=0.93)，提示前額葉動態血流反應可能作為客觀生物標記。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">197 名青少年（114 名 MDD，83 名健康對照）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">執行語言流暢任務 (VFT) 與工作記憶任務 (WM) 同時進行 fNIRS 記錄</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">MDD 與對照組之皮質血氧反應 (Oxy-Hb, slope) 差異，並以五種機器學習演算法建構識別模型</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">MDD 群在前額葉區域 VFT 與 WM 任務中 Oxy-Hb 激活減少；右側 superior frontal gyrus WM 檢索階段斜率為最重要特徵 (mean |SHAP|=0.07)；VFT-WM 結合模型隨機森林 AUC=0.93；病程較長者表現更佳 (AUC=0.96)</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">神經影像</span><span class="tag">生物標記</span><span class="tag">難治型憂鬱症</span><span class="tag">機器學習</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42264311/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>創傷後應激障礙與認知障礙透過背側注意網絡節點功能重組關聯：右側側側化模式逆轉</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>PTSD 患者若合併認知障礙，則背側注意網絡 (DAN) 節點（雙側額眼場及內顳溝）在全域效率、特徵向量中心性、度數等指標上顯著異常，且此效應僅在 PTSD-CI 群觀察到，表現為原本右側側側化 DAN 組織之逆轉，提示網絡功能重組可能為 PTSD 導致認知衰退之機制。</p>
+          <div class="card-footer">
+            <span class="tag">認知功能</span><span class="tag">PTSD</span><span class="tag">功能連接</span><span class="tag">大規模腦網路</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42379073/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>主要憂鬱症與社交焦慮症在 salience 網絡、上顳迴 與 舉狀/海馬迴 的靜態功能連接頻譜差異</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>相較於社交焦慮症，主要憂鬱症在 salience 網絡 (SN; 0.045-0.058 Hz) 及 superior temporal gyrus (STG; 0.037-0.041, 0.054-0.093 Hz) 低頻靜態功能連接減少；而社交焦慮症則在 fusiform/parahippocampal (FusPHG) 空間表達增強，且 FusPHG 表達與 LSAS 正相關、與 HAM-D 負相關，SN 與 STG 連接分別與 HAM-D/LSAS 負相關，提示兩病態在社會認知與情感處理神經通路上可能有所分歧。</p>
+          <div class="card-footer">
+            <span class="tag">焦慮合併症</span><span class="tag">神經影像</span><span class="tag"> salience 網路</span><span class="tag">主要憂鬱症</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42264313/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔗</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>藥物與期待效應在抑鬱症中對靜態功能連接的影響：網絡重組僅在藥物與信念一致時發生</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>基礎態 dorsal attention 與 salience 網絡連接預測僅在具安慰劑信念者之治療反應；而 salience 與 default mode 網絡連接則呈雙重分離：高連接預測SSRI較佳反應，低連接預測安慰劑較佳反應，顯示神經網絡結構可區分藥物與期待驅動之治療路徑。</p>
+          <div class="card-footer">
+            <span class="tag">神經影像</span><span class="tag">精準精神醫學</span><span class="tag">難治型憂鬱症</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42442664/" target="_blank">PubMed →</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">難治型憂鬱症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經影像</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:80%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">自殺風險</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">ECT 電痙攣治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:20%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">童年創傷</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:20%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">失眠/睡眠</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">發炎/細胞激素</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:20%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">精準精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">機器學習</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:20%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">生物標記</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:60%"></div></div>
+              <span class="topic-count">3</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">難治型憂鬱症</span><span class="keyword">ECT</span><span class="keyword">神經影像</span><span class="keyword">自殺風險</span><span class="keyword">童年創傷</span><span class="keyword">睡眠障礙</span><span class="keyword">炎症</span><span class="keyword">精準醫學</span><span class="keyword">機器學習</span><span class="keyword">生物標記</span></div></div>
+
+  <div class="clinic-banner">
+    <div class="clinic-links">
+      <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">🏥</span>
+        <div class="clinic-info">
+          <div class="clinic-name">李政洋身心診所首頁</div>
+          <div class="clinic-desc">專業身心科診療服務</div>
+        </div>
+        <span class="clinic-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">📬</span>
+        <div class="clinic-info">
+          <div class="clinic-name">訂閱電子報</div>
+          <div class="clinic-desc">定期接收最新身心健康資訊</div>
+        </div>
+        <span class="clinic-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed · 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/TRD-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
