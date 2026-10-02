@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TRD Brain · 難治型憂鬱症文獻日報 · 2026年10月3日</title>
+<meta name="description" content="2026年10月3日 難治型憂鬱症 (TRD) 文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #0f0f1a; --surface: #1a1a2e; --surface-2: #16213e; --line: #2a2a4a; --text: #e8e8f0; --muted: #8888aa; --accent: #6c63ff; --accent-soft: rgba(108,99,255,0.15); --accent-glow: rgba(108,99,255,0.3); --success: #4ecdc4; --warning: #ffe66d; --danger: #ff6b6b; --card-bg: rgba(26,26,46,0.92); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); background-image: radial-gradient(ellipse at 20% 50%, rgba(108,99,255,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(78,205,196,0.06) 0%, transparent 50%), radial-gradient(ellipse at 50% 80%, rgba(255,107,107,0.04) 0%, transparent 50%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), var(--success)); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; box-shadow: 0 4px 24px var(--accent-glow); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--accent); color: var(--accent); }
+  .badge-count { background: rgba(78,205,196,0.1); border: 1px solid rgba(78,205,196,0.3); color: var(--success); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05); animation: fadeUp 0.5s ease 0.1s both; backdrop-filter: blur(10px); }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); transition: background 0.2s, border-color 0.2s, transform 0.2s; backdrop-filter: blur(10px); }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: var(--accent); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { box-shadow: 0 12px 40px rgba(108,99,255,0.15); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: linear-gradient(135deg, var(--accent), var(--success)); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border: 1px solid rgba(108,99,255,0.2); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--success); text-decoration: none; opacity: 0.8; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: var(--success); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(78,205,196,0.1); border-radius: 4px; }
+  .utility-mid { color: var(--warning); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(255,230,109,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(136,136,170,0.1); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(15,15,26,0.6); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid rgba(108,99,255,0.15); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: all 0.2s; }
+  .keyword:hover { background: rgba(108,99,255,0.25); border-color: var(--accent); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--success); width: 24px; }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.3s both; }
+  .clinic-links { display: flex; flex-direction: column; gap: 12px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(108,99,255,0.15); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-info { flex: 1; }
+  .clinic-name { font-size: 15px; font-weight: 700; color: var(--text); }
+  .clinic-desc { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 80px; font-size: 11px; } .clinic-links { gap: 8px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🧠</div>
+    <div class="header-text">
+      <h1>TRD Brain · 難治型憂鬱症文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年10月3日</span>
+        <span class="badge badge-count">📊 20 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日 TRD 文獻趨勢</h2>
+    <p class="summary-text">今日TRD文獻聚焦於新興療法的比較效應與生物標記識別，特別是esketamine、arTMS與brexpiprazole在症狀領域上的差異化效應獲得關注。此外，神經影像與連結組學在預測ECT響應方面顯示潛力，而DATAd追蹤系統則提出標準化TRD治療史紀錄的框架，有助於改善臨床溝通與研究一致性。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">💊</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>難治型憂鬱症的維度效應概況：arTMS、艾司氯胺酸鼻腔噴霧劑與口服brexpiprazole的自然istic前瞻性頭對頭比較</h3>
+          <p class="journal-source">Journal of affective disorders · Dimensional effect profiles in treatment-resistant depression: A naturalistic, prospective head-to-head comparison of arTMS, esketamine nasal spray, and oral brexpiprazole.</p>
+          <p>該研究指出，雖三種療法皆能改善整體憂鬱與快感缺失，但brexpiprazole在減少反芻方面優勢明顯，而esketamine與arTMS則更易產生抗焦慮效應，支持TRD中維度評估的臨床價值。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">101名難治型憂鬱症患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">艾司氯胺酸鼻腔噴霧劑、arTMS或brexpiprazole增效療法</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">三種主動治療組間比較（無對照組）</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">一個月後憂鬱嚴重程度、快感缺失、反芻、焦慮及項目級症狀變化</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">Ketamine/Esketamine</span><span class="tag">rTMS/腦刺激</span><span class="tag">藥物增效</span><span class="tag">症狀領域分析</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42521097/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">⚡</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>以連結組圖論預測成人憂鬱症患者接受電痙攣療法的療效</h3>
+          <p class="journal-source">Journal of affective disorders · Connectome-based graph metrics predict electroconvulsive therapy response in adults with depression.</p>
+          <p>基線階段的結構網絡全域效率（特別是NDI-weighted）可預測ECT療後緩解，顯示非緩解者功能整合降低但結構連結相對保留，提供ECT個體化預測的潛在生物標記。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">41名接受ECT療程的重度憂鬱症成人患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">標準ECT療程（五次後及兩週後評估）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">緩解者（MADRS≤10）vs非緩解者於基線的網絡指標</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">基線NDI-weighted全域效率為ECT緩解的顯著預測因子</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">ECT 電痙攣治療</span><span class="tag">難治型憂鬱症</span><span class="tag">生物標記</span><span class="tag">神經影像</span><span class="tag">精準精神醫學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42571792/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">📊</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>DATAd：一種用於治療難治型憂鬱症的新溝通與追蹤系統</h3>
+          <p class="journal-source">Journal of affective disorders · DATAd: A new communication and tracking system for treatment-resistant depression.</p>
+          <p>DATAd系統以藥物、增效/組合策略、心理治療和進階治療四個類別標準化記錄TRD治療史，類比產婦檔案與TNM分期，旨在解決治療斷層與促進決策一致性。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">TRD患者及其臨床照護者（概念階段）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">使用DATAd追蹤系統記錄治療試驗（D#(#) A#(#) T#(#) Ad#(#)）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無標準化追蹤 vs 使用DATAd系統</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">改善治療史完整性、提供者交接與臨床決策一致性</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">臨床試驗</span><span class="tag">精準精神醫學</span><span class="tag">系統性回顧/統合分析</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42468852/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">⚡</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>難治型憂鬱症伴自殺意念患者接受靜腔艾司氯胺酸後24小時的臨床與EEG微態變化：前瞻性配對研究</h3>
+          <p class="journal-source">Journal of affective disorders · Rapid clinical and EEG microstate changes 24 h after intranasal esketamine in major depressive disorder with suicidal ideation: a prospective paired study.</p>
+          <p>ESK-NS在24小時內顯著改善憂鬱症狀（HAMD-17下降4.77分），儘功率譜未變，但微態D的改變敏感地反映了早期腦網路重組，可能成為快速反應的電生理標記。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">31名伴自殺意念的重度憂鬱症住院患者（最終22組完整數據）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">單次劑量靜腔艾司氯胺酸加標準照護</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">治療前（T0） vs 24小時後（T1）</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">HAMD-17顯著減少；EEG微態Doccurrence與coverage改變；功率譜無顯著變化</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">Ketamine/Esketamine</span><span class="tag">難治型憂鬱症</span><span class="tag">自殺風險</span><span class="tag">神經影像</span><span class="tag">EEG</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42492692/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">💊</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>帶 atypic 特徵的憂鬱症患者對鋰鹽增效療法的反應更佳： multicentre 前瞻性隊列研究</h3>
+          <p class="journal-source">Acta psychiatrica Scandinavica · Patients With Atypical Symptoms of Depression Respond Better to Lithium Augmentation Than Patients Without Atypical Symptoms.</p>
+          <p>具atypic特徵的MDD患者對鋰鹽增效療法的反應率達62.5%，顯著高於無atypic特徵者的36.2%（HR=2.20），提示atypic features可能為鋰鹽療效的臨床預測因子。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">118名MDD患者（MDD-A: n=24；MDD-nA: n=94）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">鋰鹽增效療法（LA）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">有atypic症狀 vs 無atypic症狀的MDD患者</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">LA治療反應率（經年齡、性別、鋰濃度及基線症狀調整後）</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">鋰鹽</span><span class="tag">藥物增效</span><span class="tag">非典型抗精神病藥</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42466814/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>早期人際治療 vs 抗憂鬱藥物：成人憂鬱症早期症狀軌跡的動態時間 warp 網路分析</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>在IPT與SSRI的前六週療程中，憂鬱症狀變化模式高度相似，提示早期改善可能首先出現在躍躁症狀（如中度失眠、焦慮身體症狀）而非核心情緒症狀上。</p>
+          <div class="card-footer">
+            <span class="tag">心理治療</span><span class="tag">憂鬱症</span><span class="tag">症狀軌跡</span><span class="tag">網路分析</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42462927/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>心血管代謝標誌物與青少年憂鬱症臨床狀況的關聯：依BMI分層探索</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>在青少年MDD中，BMI與憂鬱症狀之關聯具有性別依賴性，女生異常BMI組認知功能受損更明顯，且中性粒球及單核球/淋巴球比例在肥胖與憂鬱之間具有間接效應。</p>
+          <div class="card-footer">
+            <span class="tag">青少年</span><span class="tag">發炎/細胞激素</span><span class="tag">肥胖</span><span class="tag">難治型憂鬱症</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42543132/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⏱️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>低頻時間預測受損與憂鬱症中的精神運動功能障礙相關</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>MDD患者在低於1Hz節奏下的聽覺-運動同步化異常，此現象與憂鬱嚴重程度及精神運動快感缺失/植物症狀相關，提示精神運動遲滯可能源於預測性訊號傳導 dysfunction 而非純運動執行問題。</p>
+          <div class="card-footer">
+            <span class="tag">精神運動遲滲</span><span class="tag">時間預測</span><span class="tag">憂鬱症</span><span class="tag">認知功能</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42542090/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>前顳葉磁刺激過右DLPFC的持續theta-burst刺激如何調節憂鬱症中的中央執行網絡連結：隨機臨床試驗的探索性分析</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>右DLPFC的cTBS治療後，precuneus的度中心性增加，且其與右IPL/DLPFC的功能連結增強，顯示中央執行網絡的重新組織可能為其抗憂鬱機制之一。</p>
+          <div class="card-footer">
+            <span class="tag">rTMS/腦刺激</span><span class="tag">難治型憂鬱症</span><span class="tag">中執行網絡</span><span class="tag">功能連結</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42468853/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>單極及雙極憂鬱症中腸道微生物群變異與腦結構與功能的關係：文獻回顧</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>現有研究初步支持腸道微生物群變異與單極及雙極憂鬱症患者的腦結構（如灰白質體積）和功能（如前邊緣連結）之間的關聯，但證據仍屬初步，尤其缺乏雙極症的介入研究。</p>
+          <div class="card-footer">
+            <span class="tag">腸道微生物群</span><span class="tag">神經影像</span><span class="tag">憂鬱症</span><span class="tag">雙相憂鬱</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42480723/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>原發性、未用藥物重度憂鬱症患者前扣帶回神經同步化與壓力感知維度的關聯</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>在首次發病且未用藥物的MDD患者中，右前扣帶回ReHo降低，且在控制憂鬱與焦慮後，其與壓力自我效能感呈負相關，提示該區域可能參與壓力應對認知評價。</p>
+          <div class="card-footer">
+            <span class="tag">前扣帶回</span><span class="tag">壓力感知</span><span class="tag">憂鬱症</span><span class="tag"> resting-state fMRI</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42498121/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>大腦結構與憂鬱症：來自三個臨床隊列共4021人的弱但可重複效應</h3>
+          <p class="journal-source">Neuropsychopharmacology : official publication of the American College of Neuropsychopharmacology</p>
+          <p>雖MDD患者在廣泛區域（如前島葉、thalamus）顯示灰白質體積減少，但效應量極小（最大partial R2=0.01），且需大樣本才能驗證，提示結構性改變雖存在但非主要診斷標誌。</p>
+          <div class="card-footer">
+            <span class="tag">神經影像</span><span class="tag">憂鬱症</span><span class="tag">結構性MRI</span><span class="tag">灰白質體積</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42432162/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>抗憂鬱治療前血漿NMDA受體相關氨基酸比例與主要憂鬱症患者緩解的關聯：探索性分析</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>較高的基線d-丝氨酸/l-丝氨酸及谷氨酰胺/谷氨酸比例與6週後抗憂鬱單療療程的緩解呈正相關，提示氨基酸代謝可能參與抗憂鬱治療反應的個體差異，但仍需驗證。</p>
+          <div class="card-footer">
+            <span class="tag">麩胺酸系統</span><span class="tag">生物標記</span><span class="tag">憂鬱症</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42431326/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>藥物治療相關的腦間皮質邊緣迴路中腦核 accumbens 連結在憂鬱症中的變化</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>fluoxetine治療後，腦核accumbens與rostral anterior cingulate cortex的連結變化與症狀改善相關並經多重比較校正後仍顯著，提示其可能為藥物治療反應的神經標誌。</p>
+          <div class="card-footer">
+            <span class="tag">藥物治療</span><span class="tag">難治型憂鬱症</span><span class="tag">腦核 accumbens</span><span class="tag">功能連結</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42456817/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">😔</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>緩解期憂鬱症中日常生活的悲傷調節：調節策略組合與情緒依賴效果</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>緩解期憂鬱症個體相較於健康對照組，更偏向使用分心策略而較少使用重新評估，且在高悲傷狀態下，分心策略可能適得其反，提示情緒調節策略的動態適配性對預防復發的重要性。</p>
+          <div class="card-footer">
+            <span class="tag">情緒調節</span><span class="tag">緩解期憂鬱症</span><span class="tag">復發預防</span><span class="tag">心理治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42456816/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚖️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>憂鬱病史與壓力後執行控制缺陷：預期控制值的作用</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>既往憂鬱病史者在壓力後執行控制任務表現較差，此缺陷可能反映為控制的預期價值計算異常（dACC活動異常），而非單純的控制實施能力不足。</p>
+          <div class="card-footer">
+            <span class="tag">執行控制</span><span class="tag">憂鬱症</span><span class="tag">壓力</span><span class="tag">認知功能</span><span class="tag">神經模型</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42456814/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>雙相憂鬱症中安非他命衍生物輔助療法的療效與安全性：合併分析</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>在精挑細選的雙相憂鬱症患者中，8週安非他命類藥物（MAS/LDX）輔助療法顯著改善抑鬱症狀（MADRS下降54.6% vs 25.6%），且未增加躁狂/hypomania風險，但適用人群受限。</p>
+          <div class="card-footer">
+            <span class="tag">雙相憂鬱</span><span class="tag">藥物增效</span><span class="tag">安非他命</span><span class="tag">精神興奮劑</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42442671/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>青少年失眠與憂鬱症中的前 cingulate gyrus 及 putamen 神經代謝變化：1H-MRS 研究</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>伴失眠的青少年MDD患者在右前 cingulate 輸膽鹼/creatine 比例下降，右putamen則上升，提示睡眠障礙可能經由改變腦區代謝物水平參與憂鬱症病理，但相關性未經校正後顯著。</p>
+          <div class="card-footer">
+            <span class="tag">青少年</span><span class="tag">憂鬱症</span><span class="tag">睡眠障礙</span><span class="tag">神經代謝</span><span class="tag">1H-MRS</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42435865/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>情緒自然istic刺激引發的多模式生理反應有助於分類重度憂鬱症與廣泛性焦慮症</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>結合眼動、心率變異與皮膚電活動的多模式生理反應，配合情緒自然istic刺激，能以AUC 0.87區分MDD/GAD與健康對照，AUC 0.79區分MDD與GAD，其中EDA對恐懼刺激的反應是MDD-GAD分類的主要貢獻。</p>
+          <div class="card-footer">
+            <span class="tag">生物標記</span><span class="tag">憂鬱症</span><span class="tag">焦慮合併症</span><span class="tag">多模式融合</span><span class="tag">情緒刺激</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42503317/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>真實世界研究：艾司氯胺酸鼻腔噴霧劑回應者在澳洲與紐西蘭的生活品質與生產力改善</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>在澳洲與紐西蘭的TRD患者中，約三分之一對esketamine+OAD有效應答（HAMD-17下降≥50%），該組在16週後顯著改善憂鬱症狀（71.2%）、生活品質（29.5%）與工作生產力（≥11.9%），其中心理健康及工作損失改善最為顯著。</p>
+          <div class="card-footer">
+            <span class="tag">Ketamine/Esketamine</span><span class="tag">難治型憂鬱症</span><span class="tag">生活品質</span><span class="tag">生產力</span><span class="tag">真實世界研究</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42501650/" target="_blank">PubMed →</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">難治型憂鬱症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">8</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">Ketamine/Esketamine</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">rTMS/腦刺激</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:37%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">ECT 電痙攣治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:12%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">藥物增效</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:62%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經影像</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:75%"></div></div>
+              <span class="topic-count">6</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">生物標記</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">自殺風險</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">精準精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:37%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">症狀領域分析</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">2</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">難治型憂鬱症</span><span class="keyword">Ketamine/Esketamine</span><span class="keyword">rTMS/腦刺激</span><span class="keyword">ECT 電痙攣治療</span><span class="keyword">藥物增效</span><span class="keyword">神經影像</span><span class="keyword">生物標記</span><span class="keyword">自殺風險</span><span class="keyword">精準精神醫學</span><span class="keyword">症狀領域分析</span></div></div>
+
+  <div class="clinic-banner">
+    <div class="clinic-links">
+      <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">🏥</span>
+        <div class="clinic-info">
+          <div class="clinic-name">李政洋身心診所首頁</div>
+          <div class="clinic-desc">專業身心科診療服務</div>
+        </div>
+        <span class="clinic-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">📬</span>
+        <div class="clinic-info">
+          <div class="clinic-name">訂閱電子報</div>
+          <div class="clinic-desc">定期接收最新身心健康資訊</div>
+        </div>
+        <span class="clinic-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed · 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/TRD-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
