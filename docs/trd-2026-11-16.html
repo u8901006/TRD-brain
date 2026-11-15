@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TRD Brain · 難治型憂鬱症文獻日報 · 2026年11月16日</title>
+<meta name="description" content="2026年11月16日 難治型憂鬱症 (TRD) 文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #0f0f1a; --surface: #1a1a2e; --surface-2: #16213e; --line: #2a2a4a; --text: #e8e8f0; --muted: #8888aa; --accent: #6c63ff; --accent-soft: rgba(108,99,255,0.15); --accent-glow: rgba(108,99,255,0.3); --success: #4ecdc4; --warning: #ffe66d; --danger: #ff6b6b; --card-bg: rgba(26,26,46,0.92); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); background-image: radial-gradient(ellipse at 20% 50%, rgba(108,99,255,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(78,205,196,0.06) 0%, transparent 50%), radial-gradient(ellipse at 50% 80%, rgba(255,107,107,0.04) 0%, transparent 50%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), var(--success)); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; box-shadow: 0 4px 24px var(--accent-glow); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--accent); color: var(--accent); }
+  .badge-count { background: rgba(78,205,196,0.1); border: 1px solid rgba(78,205,196,0.3); color: var(--success); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05); animation: fadeUp 0.5s ease 0.1s both; backdrop-filter: blur(10px); }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); transition: background 0.2s, border-color 0.2s, transform 0.2s; backdrop-filter: blur(10px); }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: var(--accent); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { box-shadow: 0 12px 40px rgba(108,99,255,0.15); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: linear-gradient(135deg, var(--accent), var(--success)); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border: 1px solid rgba(108,99,255,0.2); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--success); text-decoration: none; opacity: 0.8; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: var(--success); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(78,205,196,0.1); border-radius: 4px; }
+  .utility-mid { color: var(--warning); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(255,230,109,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(136,136,170,0.1); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(15,15,26,0.6); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid rgba(108,99,255,0.15); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: all 0.2s; }
+  .keyword:hover { background: rgba(108,99,255,0.25); border-color: var(--accent); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--success); width: 24px; }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.3s both; }
+  .clinic-links { display: flex; flex-direction: column; gap: 12px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(108,99,255,0.15); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-info { flex: 1; }
+  .clinic-name { font-size: 15px; font-weight: 700; color: var(--text); }
+  .clinic-desc { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 80px; font-size: 11px; } .clinic-links { gap: 8px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🧠</div>
+    <div class="header-text">
+      <h1>TRD Brain · 難治型憂鬱症文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年11月16日</span>
+        <span class="badge badge-count">📊 20 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日 TRD 文獻趨勢</h2>
+    <p class="summary-text">本日文獻聚焦於 TRD 臨床決策的關鍵變項：ECT 相關認知副作用與自殺意念的關係、VR 在 Esketamine 治療中的輔助作用，以及機器學習在預測讀mission 中的潛力。同時，研究也在探討炎症、遺傳風險及特定症狀（如 anhedonia、AES）對 TRD 預後的影響，顯示出精準醫療與多模態干預的雙趨勢。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">⚠️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>Baseline suicidal thoughts are associated with ECT non-remission and cognitive side effects: A network outcome analysis.</h3>
+          <p class="journal-source">Journal of affective disorders · Baseline suicidal thoughts are associated with ECT non-remission and cognitive side effects: A network outcome analysis.</p>
+          <p>ECT 基線自殺念頭與緩解失敗及認知副作用顯著相關，提醒臨床醫生在 ECT 治療前需評估自殺風險並提供諮商。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">接受 ECT 治療的重度憂鬱症患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">電痙攣治療 (ECT)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">非具具自殺念頭者 vs 具自殺念頭者</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">緩解率降低與認知副作用風險增加</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">ECT 電痙攣治療</span><span class="tag">自殺風險</span><span class="tag">認知功能</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/43033988/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🥽</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Feasibility and tolerability of virtual reality during esketamine treatment: A pilot study.</h3>
+          <p class="journal-source">Journal of affective disorders · Feasibility and tolerability of virtual reality during esketamine treatment: A pilot study.</p>
+          <p>VR 整合 Esketamine 治療可接受，但有視聽不適問題，顯示出 Set & Setting 在快速抗憂鬱治療中可能的調節作用。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">接受 Esketamine 治療的 TRD 患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">輔助虛擬實境 (VR)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無 VR 干預 vs 有 VR 干預</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">治療耐受性與主觀體驗改善</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">Ketamine/Esketamine</span><span class="tag">虛擬實境</span><span class="tag">Set & Setting</span><span class="tag">治療耐受性</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42778030/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🤖</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Predicting early psychiatric readmission among people with major depressive disorder: A machine learning analysis from the prospective multicentre DEEP READ study.</h3>
+          <p class="journal-source">Journal of affective disorders · Predicting early psychiatric readmission among people with major depressive disorder: A machine learning analysis from the prospective multicentre DEEP READ study.</p>
+          <p>機器學習模型（隨機森林）可利用出院時常規臨床資料預測 90 天讀mission，關鍵預測因子包括自殺企圖、先前住院、抗癲癇藥處方等。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">剛出院的重度憂鬱症患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">機器學習風險分層模型</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">傳統統計模型 vs 機器學習模型</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">90 天內未計劃心理科讀mission 風險</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">機器學習</span><span class="tag">預測模型</span><span class="tag">復發預防</span><span class="tag">風險分層</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42732835/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Hot suicidal ideation is associated with reduced ENIGMA-defined subcortical volumes in major depressive disorder.</h3>
+          <p class="journal-source">Journal of affective disorders · Hot suicidal ideation is associated with reduced ENIGMA-defined subcortical volumes in major depressive disorder.</p>
+          <p>熱型自殺念頭（情緒駕駛型）與腦葉-球狀核體積減少顯著相關，支持將自殺念頭亞型納入神經影像風險評估。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">重度憂鬱症患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無 (觀察性研究)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">熱型自殺念頭 vs 無自殺念頭</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">亞紋理腦區體積差異</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">難治型憂鬱症</span><span class="tag">神經影像</span><span class="tag">自殺風險</span><span class="tag">生物標記</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42710718/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🚬</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Association of smoking reduction with comorbid psychiatric symptoms including ADHD, depression, anxiety, and alcohol use disorder.</h3>
+          <p class="journal-source">Journal of psychiatric research · Association of smoking reduction with comorbid psychiatric symptoms including ADHD, depression, anxiety, and alcohol use disorder.</p>
+          <p>戒煙或減煙後 12 個月，兒時 ADHD 分數較高與低減組顯著相關，提示 ADHD 是影響戒煙成功的重要共病變項。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">成人吸煙者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">吸菸減少/戒斷</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">戒斷/高減 vs 低減</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">12 個月後精神症狀變化</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">焦慮合併症</span><span class="tag">ADHD</span><span class="tag">尼古丁依賴</span><span class="tag">共病</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42815346/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#6</span>
+            <span class="emoji-icon">📈</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Six-year trajectories of cognitive, physical and social functioning in adults with late-life depression.</h3>
+          <p class="journal-source">Journal of affective disorders · Six-year trajectories of cognitive, physical and social functioning in adults with late-life depression.</p>
+          <p>晚生憂鬱症患者在六年內功能軌跡多樣化，認知與社交功能常獨立於症狀變化而持續，提示需個案化長期功能康復策略。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">晚生憂鬱症患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">長期觀察與 Growth Mixture Modeling</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">不同功能域之軌跡比較</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">六年內認知/社交功能之演變軌跡</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">晚生憂鬱症</span><span class="tag">功能軌跡</span><span class="tag">認知功能</span><span class="tag">長期預後</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42716343/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#7</span>
+            <span class="emoji-icon">⚡</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>Effects of H-coil TMS on suicidality in major depression: A secondary analysis of data from a multisite randomized trial comparing accelerated to once-a-day stimulation.</h3>
+          <p class="journal-source">Journal of affective disorders · Effects of H-coil TMS on suicidality in major depression: A secondary analysis of data from a multisite randomized trial comparing accelerated to once-a-day stimulation.</p>
+          <p>加速型 H-coil TMS 在對抗自殺念頭方面顯示更快的啟動優勢，證實 TMS 不僅改善情緒，也能快速降低自殺風險。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">主要憂鬱症患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">加速型 H-coil 經顱磁刺激 (TMS)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">加速方案 vs 單次每日方案</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">自殺念頭改善速度與程度</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">rTMS/腦刺激</span><span class="tag">自殺風險</span><span class="tag">加速 TMS</span><span class="tag">Deep TMS</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42628575/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Simultaneous EEG - fMRI study of brain activity during the autobiographical memory task in depressed patients with suicidal ideation.</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>SI 組特定記憶回憶減少，左半球 SFGmed 等區域激活降低，提供關於自殺念頭神經基礎的新資訊。</p>
+          <div class="card-footer">
+            <span class="tag">神經影像</span><span class="tag">自殺風險</span><span class="tag"> autobiographical memory</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/43033724/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📝</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Corrigendum to "Management of insomnia symptoms in depressed patients treated with agomelatine, mirtazapine and trazodone: A systematic review and meta-analysis".</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>更正通知，無臨床內容。</p>
+          <div class="card-footer">
+            <span class="tag">失眠/睡眠</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42881020/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧪</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>PDE2A is involved in negative emotional behaviors via the cAMP-PKA signaling pathway in the SPS&S model.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>PDE2A 在創傷模型中調節負向情緒行為，透過 cAMP-PKA 通路發揮作用，但機制驗證仍有限。</p>
+          <div class="card-footer">
+            <span class="tag">負向情緒</span><span class="tag">細胞激素/信號通路</span><span class="tag">PTSD  model</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42829164/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">❤️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Depressive symptom profiles and risk of cardiometabolic disease incidence.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>MDD 與心代謝疾病風險顯著相關，但 depressive symptom profiles (AES、anhedonia) 對風險無明顯差異，提示整體憂鬱負擔為主要風險因子。</p>
+          <div class="card-footer">
+            <span class="tag">心代謝疾病</span><span class="tag">非典型症狀</span><span class="tag">MDD 預後</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42826766/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🛡️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Serum cytokines and T-helper-related immune axes in adolescent major depressive disorder with and without psychotic features.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>青少年 MDD 伴隨效應調節失衡，但精神病特徵未在外周免疫標誌上獨特表現，免疫與小腦醌路徑為互補而非重疊。</p>
+          <div class="card-footer">
+            <span class="tag">青少年憂鬱</span><span class="tag">免疫標誌</span><span class="tag">細胞激素</span><span class="tag">精神病特徵</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42785393/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📉</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Association of acute-course electroconvulsive therapy pathway markers with same-hospital psychiatric readmission in patients with major depressive disorder: A retrospective cohort study.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>ECT 治療過程標記（時間與次數）與 180/365 天讀mission 無顯著關聯，提醒臨床需關注其他因素。</p>
+          <div class="card-footer">
+            <span class="tag">ECT</span><span class="tag">讀mission</span><span class="tag">預後預測</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42785385/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Changes in neural activation and in functional connectivity during affective memory recall after six months of psychotherapy: An fMRI study of individuals with depression.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>心理治療六月後 TPJ 激活增強，amygdala-TPJ 連結減弱，提示心理治療可能重塑情緒記憶處理神經機制。</p>
+          <div class="card-footer">
+            <span class="tag">心理治療</span><span class="tag">神經影像</span><span class="tag">functional connectivity</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42767514/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧪</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Machine learning-assisted plasma PEA proteomics enables differential diagnosis of melancholic depression and bipolar disorder.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>PLASMA PEA 營養素組學可區分 melancholic MDD 與 BD，具備發展生物標記的潛力。</p>
+          <div class="card-footer">
+            <span class="tag">生物標記</span><span class="tag">精準精神醫學</span><span class="tag">雙相症</span><span class="tag">機器學習</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42716347/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔁</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Hot suicidal ideation is associated with reduced ENIGMA-defined subcortical volumes in major depressive disorder.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>此條目與 rank 4 重複，略有不同視角或為系統歸類差異，此處標註為 all_papers 內可見項目。</p>
+          <div class="card-footer">
+            <span class="tag">神經影像</span><span class="tag">自殺風險</span><span class="tag">ENIGMA</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42710716/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Six-year trajectories of cognitive, physical and social functioning in adults with late-life depression.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>見 top_picks #6，此處為系統歸類餘項。</p>
+          <div class="card-footer">
+            <span class="tag">晚生憂鬱症</span><span class="tag">功能軌跡</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42716343/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔄</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Integrated cellular and molecular mechanisms of neuropsychiatric dysfunction in polycystic ovary syndrome.</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>PCOS 与精神神經功能障礙的整合機制回顧，涉及 HPG/HPA 軸、神傳遞物、代謝與表觀遺傳調節。</p>
+          <div class="card-footer">
+            <span class="tag">PCOS</span><span class="tag">神經內分泌</span><span class="tag">表觀遺傳</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42785232/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔗</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Childhood trauma, poor sleep quality, anhedonia, and alexithymia in patients with depression: A cross-sectional serial mediation analysis.</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>童年創傷透過睡眠品質與快感遺憾串聯調節 alexithymia，75% 間接效應顯示這些症狀應同時評估。</p>
+          <div class="card-footer">
+            <span class="tag">童年創傷</span><span class="tag">睡眠品質</span><span class="tag">快感遺憾</span><span class="tag">難以言說情緒</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42785231/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👁️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Retinal electrophysiology in mood disorders: Toward clinically relevant biomarkers. A systematic review and meta-analysis.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>ERG 參數在情緒障礙中一致但異質，具早期檢測與分類潛力，但需更多方法學嚴謹研究驗證。</p>
+          <div class="card-footer">
+            <span class="tag">視網膜電圖</span><span class="tag">生物標記</span><span class="tag">嬗變診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42669383/" target="_blank">PubMed →</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">難治型憂鬱症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">8</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">ECT</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:37%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">Ketamine/Esketamine</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">rTMS/腦刺激</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">自殺風險</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經影像</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">機器學習</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:12%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">生物標記</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:12%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">炎症/細胞激素</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:12%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">精準精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:12%"></div></div>
+              <span class="topic-count">1</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">難治型憂鬱症</span><span class="keyword">ECT</span><span class="keyword">Esketamine</span><span class="keyword">TMS</span><span class="keyword">自殺風險</span><span class="keyword">機器學習</span><span class="keyword">神經影像</span><span class="keyword">炎症</span><span class="keyword">生物標記</span><span class="keyword">精準精神醫學</span></div></div>
+
+  <div class="clinic-banner">
+    <div class="clinic-links">
+      <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">🏥</span>
+        <div class="clinic-info">
+          <div class="clinic-name">李政洋身心診所首頁</div>
+          <div class="clinic-desc">專業身心科診療服務</div>
+        </div>
+        <span class="clinic-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">📬</span>
+        <div class="clinic-info">
+          <div class="clinic-name">訂閱電子報</div>
+          <div class="clinic-desc">定期接收最新身心健康資訊</div>
+        </div>
+        <span class="clinic-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed · 分析模型：nvidia/nemotron-3.5-lightning-30b-a3b</span>
+    <span><a href="https://github.com/u8901006/TRD-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
