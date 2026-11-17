@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TRD Brain · 難治型憂鬱症文獻日報 · 2026年11月17日</title>
+<meta name="description" content="2026年11月17日 難治型憂鬱症 (TRD) 文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #0f0f1a; --surface: #1a1a2e; --surface-2: #16213e; --line: #2a2a4a; --text: #e8e8f0; --muted: #8888aa; --accent: #6c63ff; --accent-soft: rgba(108,99,255,0.15); --accent-glow: rgba(108,99,255,0.3); --success: #4ecdc4; --warning: #ffe66d; --danger: #ff6b6b; --card-bg: rgba(26,26,46,0.92); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); background-image: radial-gradient(ellipse at 20% 50%, rgba(108,99,255,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(78,205,196,0.06) 0%, transparent 50%), radial-gradient(ellipse at 50% 80%, rgba(255,107,107,0.04) 0%, transparent 50%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), var(--success)); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; box-shadow: 0 4px 24px var(--accent-glow); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--accent); color: var(--accent); }
+  .badge-count { background: rgba(78,205,196,0.1); border: 1px solid rgba(78,205,196,0.3); color: var(--success); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05); animation: fadeUp 0.5s ease 0.1s both; backdrop-filter: blur(10px); }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); transition: background 0.2s, border-color 0.2s, transform 0.2s; backdrop-filter: blur(10px); }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: var(--accent); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { box-shadow: 0 12px 40px rgba(108,99,255,0.15); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: linear-gradient(135deg, var(--accent), var(--success)); color: #fff; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border: 1px solid rgba(108,99,255,0.2); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--success); text-decoration: none; opacity: 0.8; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: var(--success); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(78,205,196,0.1); border-radius: 4px; }
+  .utility-mid { color: var(--warning); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(255,230,109,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(136,136,170,0.1); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(15,15,26,0.6); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid rgba(108,99,255,0.15); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: all 0.2s; }
+  .keyword:hover { background: rgba(108,99,255,0.25); border-color: var(--accent); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--success); width: 24px; }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.3s both; }
+  .clinic-links { display: flex; flex-direction: column; gap: 12px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(108,99,255,0.15); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-info { flex: 1; }
+  .clinic-name { font-size: 15px; font-weight: 700; color: var(--text); }
+  .clinic-desc { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 80px; font-size: 11px; } .clinic-links { gap: 8px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🧠</div>
+    <div class="header-text">
+      <h1>TRD Brain · 難治型憂鬱症文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年11月17日</span>
+        <span class="badge badge-count">📊 13 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日 TRD 文獻趨勢</h2>
+    <p class="summary-text">本日文獻聚焦於 TRD 病理生理機制、神經調控介入效力與個體差異。重點探討了症狀網路動態、酮胺藥物非症狀回應因子、以及 tDCS/iTBS 組合治療的邊際效益，反映 TRD 治療正邁向精準醫學與電生理調控的發展。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>Comparing trajectories of cognitive functioning in treatment-resistant and non-resistant depression: a multicentre linear mixed-effects analysis.</h3>
+          <p class="journal-source">Journal of affective disorders · Comparing trajectories of cognitive functioning in treatment-resistant and non-resistant depression: a multicentre linear mixed-effects analysis.</p>
+          <p>TRD 患者於基線即顯著較非 TRD 患者 poor 在 attention/processing speed 與 verbal memory，且僅在 motor speed 與 verbal fluency 顯示停滯不改，突顯 TRD 在認知康復軌跡上的獨特性。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">320 處 MDD 患者（118 TRD, 202 non-TRD）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">實際臨床隨訪（12 週）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">TRD  vs. non-TRD</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">認知功能軌跡分析（attention, memory, motor speed, verbal fluency）</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">治療抵抗性憂鬱症</span><span class="tag">認知功能</span><span class="tag">線性混合效應模型</span><span class="tag">預後預測</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42603560/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">💊</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>Clinical correlates of non-responders to ketamine in terms of self-assessed life engagement among treatment-resistant depression patients.</h3>
+          <p class="journal-source">Journal of psychiatric research · Clinical correlates of non-responders to ketamine in terms of self-assessed life engagement among treatment-resistant depression patients.</p>
+          <p>酮胺治療後 33 名患者（50.8%）為 LE non-responder，與較晚憂鬱發病、曾接受 ECT、無糖尿病及就業狀況相關，提示症狀消除 ≠ 生活參與回復，需整合心理社介入。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">65 位 TRD/Bipolar 院患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">短程酮胺加善 (IV/oral, 4 週)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">LE responder vs. non-responder</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">Life engagement (IDS-SR 10) 非回應臨床相關因子</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">Ketamine</span><span class="tag">生活參與</span><span class="tag">治療抵抗</span><span class="tag">預測因子</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42748866/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🌟</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Dynamic interactions between depressive and somatic symptoms following a positive psychology intervention: Evidence from a cross-lagged panel network analysis.</h3>
+          <p class="journal-source">Journal of affective disorders · Dynamic interactions between depressive and somatic symptoms following a positive psychology intervention: Evidence from a cross-lagged panel network analysis.</p>
+          <p>正向心理介入可減少症狀網路連結，特別是將 anxiety somatic symptoms (如胃腸不適、背痛) 與 depression 網絡解離，顯示在產婦群體中具預防 TRD 之潛力。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">1422 名產婦（687 介入, 735 對照）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">Positive psychology intervention</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">Usual care</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">Depressive 與 somatic symptoms network 演變差異</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">產後憂鬱</span><span class="tag">症狀網路</span><span class="tag">正向心理介入</span><span class="tag">跨-lagged panel</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42772526/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">⚡</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Theta phase-targeted prefrontal stimulation modulates amygdala gamma oscillations and alleviates depressive-like behavior in CUMS rats.</h3>
+          <p class="journal-source">Journal of psychiatric research · Theta phase-targeted prefrontal stimulation modulates amygdala gamma oscillations and alleviates depressive-like behavior in CUMS rats.</p>
+          <p>mPFC theta-phase 目標電刺激可顯著抑制 BLA gamma oscillations (70-120Hz) 並逆轉憂鬱行為，提供閉環神經調控之新路徑與生物標誌物。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">CUMS 大鼠模型</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">Theta-phase-targeted mPFC stimulation</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">Non-phase-targeted stimulation (control)</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">Gamma oscillation 抑制與憂鬱行為改善</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">腦刺激</span><span class="tag">閉環調控</span><span class="tag">theta-gamma coupling</span><span class="tag">動物模型</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42748867/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">📊</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Causal interplay between major depressive disorder and cognitive impairment: A bidirectional Mendelian randomization study with brain imaging mediation.</h3>
+          <p class="journal-source">Journal of affective disorders · Causal interplay between major depressive disorder and cognitive impairment: A bidirectional Mendelian randomization study with brain imaging mediation.</p>
+          <p>雙向 MR 揭露 MDD 與 executive function、visual memory 雙向因果關係，特定腦結構/功能介 mediate 18-27% 變異，強化 cognition 作為 TRD 生物標誌與介入目標。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">大規模 GWAS Summary data</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">Mendelian randomization</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">Bidirectional causal inference</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">MDD 與 cognitive impairment 因果關係與神經影像中介</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">孟德爾隨機化</span><span class="tag">認知障礙</span><span class="tag">腦影像中介</span><span class="tag">病理生理機制</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42767513/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#6</span>
+            <span class="emoji-icon">🤖</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Modeling inter-subject heterogeneity improves multisite rs-fMRI identification of major depressive disorder: An interpretable graph neural network approach.</h3>
+          <p class="journal-source">Journal of affective disorders · Modeling inter-subject heterogeneity improves multisite rs-fMRI identification of major depressive disorder: An interpretable graph neural network approach.</p>
+          <p>BRM-GNN 整合主體特異性與性別 aware heterogenous population graph，在 16 站點 1586 樣本中提升 MDD 識別效能，預測性區域集中於前額、扣帶、亞腦。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">1586 多站點樣本（821 MDD, 765 HC）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">Interpretable GNN</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">Existing graph-based methods</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">多站點 rs-fMRI 之 MDD 識別效能與生物標誌區域</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">生物標誌</span><span class="tag">圖神經網路</span><span class="tag">多站點</span><span class="tag">rs-fMRI</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42744142/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#7</span>
+            <span class="emoji-icon">🚨</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>Clinical outcomes of psychotic depression in Sweden: a nationwide register study.</h3>
+          <p class="journal-source">Journal of affective disorders · Clinical outcomes of psychotic depression in Sweden: a nationwide register study.</p>
+          <p>精神病性憂鬱具有高住院與自殺風險，ECT 回應率 89.8%、緩解率 48.4%，年齡與先前收治為關鍵預測因子，提醒需密切監測與早期介入。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">8048 精神病性憂鬱患者（2012-2020）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">Nationwide register study</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">Post-index outcomes</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">住院、自殺、ECT 回應/緩解率</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">電痙攣治療</span><span class="tag">住院</span><span class="tag">自殺風險</span><span class="tag">精神病性憂鬱</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42624214/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Effects of depression status and genetic risk on emotional word processing in a large cohort.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>CES-D 定義之 depression status 影響 emotional words valence rating，MDD-PRS 顯示負面效應（beta=-0.64），提示 genetic risk 可能配置認知偏差易感性。</p>
+          <div class="card-footer">
+            <span class="tag">情緒處理</span><span class="tag">遺傳風險</span><span class="tag">認知偏差</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42744145/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">❓</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Efficacy of tDCS-primed iTBS in major depressive disorder: A randomized, sham-controlled trial with exploratory resting motor threshold analyses.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>cathodal tDCS priming 並未顯著增強 iTBS 效果，探勘分析顯示 acute RMT change 可能與 neurocognitive improvement 有關，但證實效果有限。</p>
+          <div class="card-footer">
+            <span class="tag">tDCS</span><span class="tag">iTBS</span><span class="tag">神經調控</span><span class="tag">臨床試驗</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42727730/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👵</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Relationship between cognitive function and brain activation in late-life depression patients with and without frailty: a functional near-infrared spectroscopy study.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>LLD 合併 frailty 時認知功能下降與 DLPFC_L  hypoactivation 顯著，frailty 可能是 LLD 認知惡化之重要生理標誌。</p>
+          <div class="card-footer">
+            <span class="tag">老年憂鬱</span><span class="tag">frailty</span><span class="tag">fNIRS</span><span class="tag">認知功能</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42665165/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔍</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Machine learning combined with fMRI identifies dynamic brain network alterations in post-stroke depression: A dual-center cross-sectional study.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>SVM 達成 AUC 0.838 (external 0.784) 識別 PSD，動態狀態特徵（全局整合、穩定模組）與 PSD 相關，但抗憂藥排除後效能有所下降。</p>
+          <div class="card-footer">
+            <span class="tag">post-stroke depression</span><span class="tag">機器學習</span><span class="tag">fMRI</span><span class="tag">動態連接</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42612921/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💰</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Burden of health comorbidities and associated health care costs in the Australian Genetics of Depression Study using the medication-based Rx-Risk Comorbidity Index.</h3>
+          <p class="journal-source">Journal of affective disorders</p>
+          <p>AGDS 參與者平均 4.6 個合併症（不含憂鬱），成本約比無合併症者高 65%，痛覺與炎症/痛為最常見共病，凸顯 TRD 多模式照護需求。</p>
+          <div class="card-footer">
+            <span class="tag">合併症</span><span class="tag">健康成本</span><span class="tag">多模式照護</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42612923/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>Clinical correlates of non-responders to ketamine in terms of self-assessed life engagement among treatment-resistant depression patients.</h3>
+          <p class="journal-source">Journal of psychiatric research</p>
+          <p>重複收錄，實質僅作為 all_papers 參考（見 top_picks rank 2）</p>
+          <div class="card-footer">
+            <span class="tag">Ketamine</span><span class="tag">生活參與</span><span class="tag">治療抵抗</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42748866/" target="_blank">PubMed →</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">治療抵抗性憂鬱症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">8</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經調控</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:62%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">酮胺</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:37%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">認知功能</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:37%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">腦影像</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:37%"></div></div>
+              <span class="topic-count">3</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">治療抵抗性憂鬱症</span><span class="keyword">神經調控</span><span class="keyword">酮胺</span><span class="keyword">認知功能</span><span class="keyword">腦影像</span><span class="keyword">臨床預測因子</span></div></div>
+
+  <div class="clinic-banner">
+    <div class="clinic-links">
+      <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">🏥</span>
+        <div class="clinic-info">
+          <div class="clinic-name">李政洋身心診所首頁</div>
+          <div class="clinic-desc">專業身心科診療服務</div>
+        </div>
+        <span class="clinic-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="clinic-link" target="_blank">
+        <span class="clinic-icon">📬</span>
+        <div class="clinic-info">
+          <div class="clinic-name">訂閱電子報</div>
+          <div class="clinic-desc">定期接收最新身心健康資訊</div>
+        </div>
+        <span class="clinic-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed · 分析模型：nvidia/nemotron-3.5-lightning-30b-a3b</span>
+    <span><a href="https://github.com/u8901006/TRD-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
